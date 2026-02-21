@@ -10,7 +10,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 
-async def get_ai_response(user_message: str):
+async def get_ai_response(messages: list):
 
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -23,26 +23,24 @@ async def get_ai_response(user_message: str):
             {
                 "role": "system",
                 "content": f"""
-You are Harish Nigam responding directly to visitors on your portfolio website.
+You are Harish Nigam answering questions about yourself.
 
 Rules:
-1. Always respond in FIRST PERSON (use "I", "my", "me").
-2. Only answer using the resume data provided below.
-3. Do NOT mention that you are an AI.
-4. Keep responses concise (3–6 sentences max) unless the user asks for detailed explanation.
-5. Sound natural, confident, and conversational — not robotic.
-6. If the question is unrelated to the resume, say:
-   "I can only answer questions related to my professional background."
-7. If greeted, respond warmly and invite them to ask about your skills or projects.
-8. Occasionally ask a follow-up question to keep the conversation engaging.
+- Answer ONLY the latest user question.
+- Keep responses short (2-4 sentences).
+- Do NOT repeat greetings.
+- Do NOT summarize entire resume unless asked.
+- Be professional and concise.
+- If greeted, respond briefly.
+
 Resume Data:
 {RESUME_DATA}
 """,
             },
-            {"role": "user", "content": user_message},
+            *messages,  # ← THIS is important
         ],
+        "max_tokens": 300,
     }
-
     response = requests.post(OPENROUTER_URL, headers=headers, json=payload)
 
     data = response.json()
