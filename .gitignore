@@ -1,0 +1,52 @@
+# ==============================
+# FRONTEND (React + Vite + TS)
+# ==============================
+
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*
+
+# Vite cache
+frontend/.vite/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ==============================
+# BACKEND (Python + FastAPI)
+# ==============================
+
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+
+# Python cache
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# ==============================
+# OS Files
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+# ==============================
+# IDE Files
+# ==============================
+
+.vscode/
+.idea/
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
