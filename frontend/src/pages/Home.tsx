@@ -161,7 +161,7 @@ export default function Home() {
       {
         role: "Full Stack Web Developer Intern",
         company: "Creative Squadz",
-        period: "Jul 2025 – Nov2025",
+        period: "Jul 2025 – Nov 2025",
         points: [
           "Built a MERN-based File/Media Conversion platform with guest/paid models and secure tracking.",
           "Developed PHP advertising websites and multiple WordPress sites including a WooCommerce store.",
