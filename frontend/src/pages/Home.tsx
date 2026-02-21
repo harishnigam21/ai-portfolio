@@ -17,15 +17,15 @@ import { TfiLinkedin } from "react-icons/tfi";
 
 export default function Home() {
   const [greet, setGreet] = useState("");
-  const [working, setWorking] = useState("Full Stack Developer");
+  // const [working, setWorking] = useState("Full Stack Developer");
 
-  const workingas = [
-    "Full Stack Developer",
-    "Backend Engineer",
-    "Frontend Developer",
-    "API Architect",
-    "System Designer",
-  ];
+  // const workingas = [
+  //   "Full Stack Developer",
+  //   "Backend Engineer",
+  //   "Frontend Developer",
+  //   "API Architect",
+  //   "System Designer",
+  // ];
 
   interface Project {
     link: string;
@@ -385,12 +385,12 @@ The backend uses middleware-based validation for request payloads, multer for ha
     else setGreet("Welcome");
   }, [time]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWorking(workingas[Math.floor(Math.random() * workingas.length)]);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setWorking(workingas[Math.floor(Math.random() * workingas.length)]);
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-950 via-gray-900 to-black text-gray-200 font-sans">
