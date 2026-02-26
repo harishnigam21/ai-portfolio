@@ -18,7 +18,7 @@ async def get_ai_response(messages: list):
     }
 
     payload = {
-        "model": "mistralai/mistral-7b-instruct",
+        "model": "openai/gpt-4o-mini",
         "messages": [
             {
                 "role": "system",
@@ -44,5 +44,12 @@ Resume Data:
     response = requests.post(OPENROUTER_URL, headers=headers, json=payload)
 
     data = response.json()
+
+    # ✅ Now properly inside function
+    if response.status_code != 200:
+        return f"OpenRouter Error: {data}"
+
+    if "choices" not in data:
+        return f"Unexpected API format: {data}"
 
     return data["choices"][0]["message"]["content"]

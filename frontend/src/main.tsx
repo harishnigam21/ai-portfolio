@@ -8,3 +8,5 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+//TODO: add admin panel to update,add,delete portfolio details
+//TODO: deploy it on hostinger
