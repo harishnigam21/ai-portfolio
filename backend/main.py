@@ -42,7 +42,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Backend is running"}
+    return {"message": "PortFolio Backend is running"}
 
 
 app.include_router(chat_router, prefix="/api", tags=["Chat"])

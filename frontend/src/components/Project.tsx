@@ -9,19 +9,18 @@ interface Project {
   long: string;
   tech: string;
 }
+type Category = "MERN" | "PHP" | "WordPress";
 interface ProjectProps {
   info: {
     description: string;
-    category: string[];
+    category: Category[];
     MERN: Project[];
     PHP: Project[];
     WordPress: Project[];
   };
 }
 export default function Project({ info }: ProjectProps) {
-  const [activeCategory, setActiveCategory] = useState<
-    "MERN" | "PHP" | "WordPress"
-  >("MERN");
+  const [activeCategory, setActiveCategory] = useState<Category>("MERN");
   return (
     <section
       id="projects"
@@ -42,10 +41,10 @@ export default function Project({ info }: ProjectProps) {
           </span>
         </div>
         <div className="max-w-full flex flex-wrap justify-center gap-4">
-          {info.category.map((cat) => (
+          {info.category.map((cat: Category) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat as any)}
+              onClick={() => setActiveCategory(cat)}
               className={`px-6 py-2 rounded-full flex items-center gap-2 flex-nowrap border transition ${
                 activeCategory === cat
                   ? "bg-blue-600 text-white border-blue-600"
@@ -61,7 +60,7 @@ export default function Project({ info }: ProjectProps) {
         </div>
         <div className="flex flex-nowrap w-full self-center-safe justify-center-safe overflow-x-auto py-4 noscrollbar gap-4">
           {info[activeCategory].map((proj, idx) => (
-            <ProjectCard  key={idx} proj={proj}/>
+            <ProjectCard key={idx} proj={proj} />
           ))}
         </div>
       </div>

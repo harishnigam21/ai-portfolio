@@ -41,6 +41,7 @@ export default function Home() {
     name: string;
     image: string;
   }
+  type Category = "MERN" | "PHP" | "WordPress";
 
   interface PortfolioType {
     profileImg: string;
@@ -70,7 +71,7 @@ export default function Home() {
     }[];
     projects: {
       description: string;
-      category: string[];
+      category: Category[];
       MERN: Project[];
       PHP: Project[];
       WordPress: Project[];
